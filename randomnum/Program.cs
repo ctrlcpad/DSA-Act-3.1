@@ -24,11 +24,19 @@ class Program
         }
         else if (ave == 2)
         {
-            remark = "good";
+            remark = "fair";
         }
         else if (ave == 3)
         {
-            remark = "nice one baby";
+            remark = "good";
+        }
+        else if (ave == 4)
+        {
+            remark = "Very good";
+        }
+        else if (ave == 5)
+        {
+            remark = "Excellent";
         }
         else
         {
