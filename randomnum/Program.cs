@@ -1,49 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace randomnum;
 
 class Program
 {
-
-    static void Main(string[] args)
+    static void Main()
     {
-        try
+        int[] intArray = new int[10];
+        int sum = 0;
+
+        for (int x = 0; x < intArray.Length; x++)
         {
-            Random random = new Random();
-            string name = "";
-            int bet, multiplier = random.Next(2, 6);
-            string lucky = "";
-
-            Console.Write("Enter your Name: ");
-            name = Console.ReadLine();
-            Console.Write("Enter bet amount: ");
-            bet = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter your 6 lucky numbers: ");
-            lucky = Console.ReadLine();
-
-
-            Console.WriteLine("\n ----- DRAW RESULT ----- ");
-            Console.WriteLine("Name: {0}", name);
-            Console.WriteLine("Amount: {0}", bet);
-            Console.WriteLine("Multiplier 4x");
-            Console.WriteLine("Prize: " + bet * multiplier);
-            Console.WriteLine("Entry No's: {0}", lucky);
-
-            Console.WriteLine(" D R A W R E S U L T");
-            Console.WriteLine(random.Next(1, 50) + " " + random.Next(1, 50) + " " + random.Next(1, 50) + " " + random.Next(1, 50) + " " + random.Next(1, 50) + " " + random.Next(1, 50) + " ");
-
+            Console.Write($"Enter Score {x + 1}: ");
+            intArray[x] = Convert.ToInt32(Console.ReadLine());
+            sum += intArray[x];
         }
-        catch (Exception e)
+
+        int ave = sum / intArray.Length;
+
+        string remark;
+
+        if (ave == 1)
         {
-            Console.WriteLine("Error encountered. " + e.ToString());
+            remark = "poor";
         }
-        finally
+        else if (ave == 2)
         {
-            Console.ReadKey();
+            remark = "good";
         }
+        else if (ave == 3)
+        {
+            remark = "nice one baby";
+        }
+        else
+        {
+            remark = "out of range";
+        }
+
+        Console.WriteLine("\n--- RESULTS ---");
+        Console.WriteLine("Scores: " + string.Join(", ", intArray));
+        Console.WriteLine("Average score is: " + ave);
+        Console.WriteLine("Remark: " + remark);
     }
 }
